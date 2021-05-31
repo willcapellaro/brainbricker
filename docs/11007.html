@@ -55,21 +55,35 @@ h1 a {
 	border: .5rem solid black;
 	position: relative;
 	background-color: #005bd1;
+	display: flex;
+align-items: center;
 
 }
 
+.legoinstrux h2 {
+	display: none;
+}
+
 .legoinstrux div img {
-    position: absolute;
-    top: 0;
+/*    position: absolute;
+*/  /*top: 0;
     bottom: 0;
     left: 0;
-    right: 0;
-    margin: auto;
+    right: 0;*/
+    display: block;
+    /*margin: 4rem;*/
+
+    margin: auto auto;
+      margin: auto;
+  display: block;
+    display: flex;
+  justify-content: center;
     width: 80%;
     height: 80%;
     /*height: auto;*/
 	object-fit: contain;
 	mix-blend-mode: darken;}
+
 
 /*
 a {text-decoration: none; color: navy; margin-right: 1em;}
@@ -103,12 +117,11 @@ li:hover img {
 
 li img {
 	mix-blend-mode: multiply;
-	width: 70px;
-	height: 70px;
+	width: 40px;
+	height: 40px;
 	object-fit: contain;
 	padding: 10px;
 	text-align: center;
-
 }
 
 li a {
@@ -158,6 +171,8 @@ li a:focus {
 }
 
 
+
+
 html {background-color: #005bd1;}
 
 @media only screen and (min-width: 700px) and (max-width: 1199px){
@@ -189,6 +204,9 @@ html {background-color: #005bd1;}
 	padding: 0;
 }
 
+.svgg {
+	width: 100%; height: auto;
+}
 
 }
 </style>
@@ -196,9 +214,9 @@ html {background-color: #005bd1;}
 
 <body>
 <div class="margintext">
-	<h1><a href="#diva">Brainbreaker</a></h1>
-	<h3>11006</h3>
-	<p>Solve this 3D puzzle using only the blue pieces from the set. When you're ready, <a href="">reveal the solution</a>. 
+	<h1>Brainbreaker</h1>
+	<h3>LEGO 11006</h3>
+	<p>Solve this 3D puzzle using only the blue pieces from the set. When you're ready, reveal the solution and check your work. 
 	</p>
 
 	<h3>Steps</h3>
@@ -208,6 +226,12 @@ html {background-color: #005bd1;}
 		<li><a id="i3b" onclick="clearAll(); goTo3()" href="#i3"><img class="btnImg" src="imgs/11007/o3.png" alt="back side"/></a> </li>
 		<li><a id="i4b" onclick="clearAll(); goTo4()" id="i1"href="#i4"><img class="btnImg" src="imgs/11007/o4.png" alt="left side"/></a> </li>
 		<li><a id="i5b" onclick="clearAll(); goTo5()" href="#i5"><img class="btnImg" src="imgs/11007/o5.png" alt="top side"/></a> </li>
+		<li id="i6sb" style="display: none;"><a onclick="clearAll(); goTo6()" href="#i6"><img class="btnImg " src="imgs/11007/o6s.png" alt="top side"/></a> </li>
+		<li id="i6ssb" style="display: none;"><a onclick="clearAll(); goTo6ss()" href="#i6ss"><img class="btnImg" src="imgs/11007/o6sss.png" alt="top side"/></a> </li>
+		<li id="i1ssb" style="display: none;"><a onclick="clearAll(); goTo1ss()" href="#i1ss"><img class="btnImg" src="imgs/11007/o1ss.png" alt="top side"/></a> </li>
+
+
+
 <!-- 		<button onclick="goToOne()">Go to 1</button>
 		<button onclick="goToTwo()">Go to 2</button> -->
 	</ul>
@@ -219,7 +243,7 @@ html {background-color: #005bd1;}
 <div class="solutionControl">
 	<div>
 		<label class="switch">
-		  <input onclick="checkSolution1(); checkSolution2(); checkSolution3(); checkSolution4(); checkSolution5();" id="solutionSwitch" type="checkbox">
+		  <input onclick="checkSolution1(); checkSolution2(); checkSolution3(); checkSolution4(); checkSolution5(); hideSpecials(); hideSpecialImgs();" id="solutionSwitch" type="checkbox">
 		  <span  class="slider round"></span>
 		</label>
 	</div>
@@ -235,6 +259,13 @@ html {background-color: #005bd1;}
     <div class="legoinstrux" id="i3"><div><h2>Back</h2><img class="item" id="img3" src="imgs/11007/3c.png" alt="instruction image" /></div></div>
     <div class="legoinstrux" id="i4"><div><h2>Left</h2><img class="item" id="img4" src="imgs/11007/4c.png" alt="instruction image" /></div></div>
     <div class="legoinstrux" id="i5"><div><h2>Top</h2><img class="item" id="img5" src="imgs/11007/5c.png" alt="instruction image" /></div></div>
+    <div class="legoinstrux" style="display: none;" id="i6"><div><h2>Top</h2><img class="item" id="img5" src="imgs/11007/6s.png" alt="instruction image" /></div></div>
+    <div class="legoinstrux" style="display: none;" id="i6ss"><div><h2>Top</h2><img class="item" id="img5" src="imgs/11007/6ss.png" alt="instruction image" /></div></div>
+<!-- <div class="legoinstrux" style="display: none;" id="i6ss"><div><h2>Top</h2><img class="item" id="img5" src="imgs/11007/6ss.svg" alt="instruction image" /></div></div> -->
+
+
+    <div class="legoinstrux" style="display: none;" id="i1ss"><div><h2>Top</h2><img class="item" id="img5" src="imgs/11007/1ss.png" alt="instruction image" /></div></div>
+
 
 </body>
 
@@ -249,6 +280,12 @@ html {background-color: #005bd1;}
 		var element = document.getElementById("i4b");
 		element.classList.remove("current");
 		var element = document.getElementById("i5b");
+		element.classList.remove("current");
+		var element = document.getElementById("i6sb");
+		element.classList.remove("current");
+		var element = document.getElementById("i6ssb");
+		element.classList.remove("current");
+		var element = document.getElementById("i1ssb");
 		element.classList.remove("current");
 	}
 	function goTo1() {
@@ -271,6 +308,20 @@ html {background-color: #005bd1;}
 	var element = document.getElementById("i5b");
 	element.classList.add("current");
 	}
+
+			function goTo6() {
+	var element = document.getElementById("i6sb");
+	element.classList.add("current");
+	}
+		function goTo6ss() {
+	var element = document.getElementById("i6ssb");
+	element.classList.add("current");
+	}
+		function goTo1ss() {
+	var element = document.getElementById("i1ssb");
+	element.classList.add("current");
+	}
+
 
 
 function checkSolution1() {
@@ -382,7 +433,46 @@ var img=document.getElementById("img5");
 }
 }
 
-	</script>
+function hideSpecials() {
+var isChecked = document.getElementById("solutionSwitch").checked;
+
+if(isChecked){
+	console.log("Input is checked; Solution fnction running");
+	document.getElementById("i6sb").style.display = "inline-block";
+	document.getElementById("i6ssb").style.display = "inline-block";
+	document.getElementById("i1ssb").style.display = "inline-block";
+	// document.getElementById("i6").style.opacity = "0";
+	// document.getElementById("i6ss").style.opacity = "0";
+	// document.getElementById("i1ss").style.opacity = "0";
+	} else {
+	console.log("Input is NOT checked; Solution fnction running");
+	document.getElementById("i6sb").style.display = "none";
+	document.getElementById("i6ssb").style.display = "none";
+	document.getElementById("i1ssb").style.display = "none";
+	// document.getElementById("i6").style.opacity = "1";
+	// document.getElementById("i6ss").style.opacity = "1";
+	// document.getElementById("i1ss").style.opacity = "1";
+	}
+}
+
+function hideSpecialImgs() {
+var isChecked = document.getElementById("solutionSwitch").checked;
+
+if(isChecked){
+	console.log("Input is checked; Solution fnction 2 running");
+	document.getElementById("i6").style.display = "inline-block";
+	document.getElementById("i6ss").style.display = "inline-block";
+	document.getElementById("i1ss").style.display = "inline-block";
+	} else {
+	console.log("Input is NOT checked; Solution fnction 2 running");
+	document.getElementById("i6").style.display = "none";
+	document.getElementById("i6ss").style.display = "none";
+	document.getElementById("i1ss").style.display = "none";
+	}
+}
+	
+
+</script>
 
 
 
