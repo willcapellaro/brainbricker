@@ -47,8 +47,7 @@ h1 a {
 	margin-top: auto; 
 	margin-bottom: auto; 
 	border-radius: 10px; 
-/*	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-*/	
+/*	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);*/	
 	border: .5rem solid black;
 	position: relative;
 	background-color: #005bd1;
@@ -69,7 +68,7 @@ h1 a {
 	mix-blend-mode: darken;}
 
 a {text-decoration: none; color: navy; margin-right: 1em;}
-a:hover {border-bottom: 1px navy solid;}
+a:hover {color: black; border-bottom: 5px black solid;}
 ul {
 	font-size: 20px; 
 	list-style-type: none; 
@@ -169,11 +168,13 @@ html {background-color: #005bd1;}
 
 	<h3>Steps</h3>
 	<ul>
-		<li><a href="#i1" class="current">1</a> </li>
-		<li><a href="#i2">2</a> </li>
-		<li><a href="#i3">3</a> </li>
-		<li><a href="#i4">4</a> </li>
-		<li><a href="#i5">5</a> </li>
+		<li><a id="i1b" onclick="clearAll(); goTo1()" href="#i1" class="current">Fr</a> </li>
+		<li><a id="i2b" onclick="clearAll(); goTo2()" href="#i2">Rt</a> </li>
+		<li><a id="i3b" onclick="clearAll(); goTo3()" href="#i3">Bk</a> </li>
+		<li><a id="i4b" onclick="clearAll(); goTo4()" id="i1"href="#i4">Lft</a> </li>
+		<li><a id="i5b" onclick="clearAll(); goTo5()" href="#i5">Top</a> </li>
+<!-- 		<button onclick="goToOne()">Go to 1</button>
+		<button onclick="goToTwo()">Go to 2</button> -->
 	</ul>
 
 </div>
@@ -185,5 +186,42 @@ html {background-color: #005bd1;}
     <div class="legoinstrux" id="i5"><div><h2>Top</h2><img class="item" src="imgs/11007/5c.png" alt="instruction image" /></div></div>
 
 </body>
+
+<script>
+	function clearAll() {
+		var element = document.getElementById("i1b");
+		element.classList.remove("current");
+		var element = document.getElementById("i2b");
+		element.classList.remove("current");
+		var element = document.getElementById("i3b");
+		element.classList.remove("current");
+		var element = document.getElementById("i4b");
+		element.classList.remove("current");
+		var element = document.getElementById("i5b");
+		element.classList.remove("current");
+	}
+	function goTo1() {
+	var element = document.getElementById("i1b");
+	element.classList.add("current");
+	}
+		function goTo2() {
+	var element = document.getElementById("i2b");
+	element.classList.add("current");
+	}
+		function goTo3() {
+	var element = document.getElementById("i3b");
+	element.classList.add("current");
+	}
+		function goTo4() {
+	var element = document.getElementById("i4b");
+	element.classList.add("current");
+	}
+		function goTo5() {
+	var element = document.getElementById("i5b");
+	element.classList.add("current");
+	}
+	</script>
+
+
 
 </html>
