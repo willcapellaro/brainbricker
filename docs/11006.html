@@ -85,6 +85,7 @@ align-items: center;
 	mix-blend-mode: darken;}
 
 
+
 /*
 a {text-decoration: none; color: navy; margin-right: 1em;}
 a:hover {color: black; border-bottom: 5px black solid;}
@@ -214,7 +215,28 @@ html {background-color: #005bd1;}
 	padding-bottom: 1rem;
 }
 
+/*.bluebox {
+    position: relative;
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: red;
+}*/
 
+button {
+	font-size: 1.5rem;
+	background-color: black;
+	color: white;
+	border-radius: 3px;
+	border: none;
+	padding: 8px;
+	margin: 0;
+}
+button a {
+	color: white;
+	text-decoration: none;
 }
 </style>
 </head>
@@ -223,20 +245,20 @@ html {background-color: #005bd1;}
 <div class="margintext">
 	<h1>Brainbreaker</h1>
 	<h3>LEGO 11006</h3>
-	<p>Solve this 3D puzzle using only the blue pieces from the set. When you're ready, reveal the solution and check your work. 
+	<p>Solve this 3D puzzle using only the blue pieces from the set (not the dark or light azure blues). See the <a href="#plist" onclick="clearAll();">parts list</a> list for details. When you're ready, reveal the solution and check your work. 
 	</p>
-	<p class="legal">©2021 Will Capellaro</p>
+	<button><a href="#plist" onclick="clearAll();">Parts List</a></button>
 
 	<h3>Views</h3>
 	<ul>
-		<li><a id="i1b" onclick="clearAll(); goTo1()" href="#i1" class="current"><img class="btnImg" src="imgs/11007/o1.png" alt="front side"/></a> </li>
-		<li><a id="i2b" onclick="clearAll(); goTo2()" href="#i2"><img class="btnImg" src="imgs/11007/o2.png" alt="right side"/></a> </li>
-		<li><a id="i3b" onclick="clearAll(); goTo3()" href="#i3"><img class="btnImg" src="imgs/11007/o3.png" alt="back side"/></a> </li>
-		<li><a id="i4b" onclick="clearAll(); goTo4()" id="i1"href="#i4"><img class="btnImg" src="imgs/11007/o4.png" alt="left side"/></a> </li>
-		<li><a id="i5b" onclick="clearAll(); goTo5()" href="#i5"><img class="btnImg" src="imgs/11007/o5.png" alt="top side"/></a> </li>
-		<li id="i6sb" style="display: none;"><a onclick="clearAll(); goTo6()" href="#i6"><img class="btnImg " src="imgs/11007/o6s.png" alt="top side"/></a> </li>
-		<li id="i6ssb" style="display: none;"><a onclick="clearAll(); goTo6ss()" href="#i6ss"><img class="btnImg" src="imgs/11007/o6sss.png" alt="top side"/></a> </li>
-		<li id="i1ssb" style="display: none;"><a onclick="clearAll(); goTo1ss()" href="#i1ss"><img class="btnImg" src="imgs/11007/o1ss.png" alt="top side"/></a> </li>
+		<li><a id="i1b" onclick="clearAll(); goTo1()" href="#i1" class="current"><img class="btnImg" src="imgs/11006/o1.png" alt="front side"/></a> </li>
+		<li><a id="i2b" onclick="clearAll(); goTo2()" href="#i2"><img class="btnImg" src="imgs/11006/o2.png" alt="right side"/></a> </li>
+		<li><a id="i3b" onclick="clearAll(); goTo3()" href="#i3"><img class="btnImg" src="imgs/11006/o3.png" alt="back side"/></a> </li>
+		<li><a id="i4b" onclick="clearAll(); goTo4()" id="i1"href="#i4"><img class="btnImg" src="imgs/11006/o4.png" alt="left side"/></a> </li>
+		<li><a id="i5b" onclick="clearAll(); goTo5()" href="#i5"><img class="btnImg" src="imgs/11006/o5.png" alt="top side"/></a> </li>
+		<li id="i6sb" style="display: none;"><a onclick="clearAll(); goTo6()" href="#i6"><img class="btnImg " src="imgs/11006/o6s.png" alt="top side"/></a> </li>
+		<li id="i6ssb" style="display: none;"><a onclick="clearAll(); goTo6ss()" href="#i6ss"><img class="btnImg" src="imgs/11006/o6sss.png" alt="top side"/></a> </li>
+		<li id="i1ssb" style="display: none;"><a onclick="clearAll(); goTo1ss()" href="#i1ss"><img class="btnImg" src="imgs/11006/o1ss.png" alt="top side"/></a> </li>
 
 
 
@@ -256,23 +278,28 @@ html {background-color: #005bd1;}
 		</label>
 	</div>
 	<div><h3>Reveal Solution</h3>
+
 	</div>
-</div>
 
 </div>
+	<p class="legal">&copy;2021 Will Capellaro</p>
+
+</div>
 
 
-    <div class="legoinstrux" id="i1"><div><h2>Front</h2><img class="item" id="img1" src="imgs/11007/1c.png" alt="instruction image" /></div></div>
-    <div class="legoinstrux" id="i2"><div><h2>Right</h2><img class="item" id="img2" src="imgs/11007/2c.png" alt="instruction image" /></div></div>
-    <div class="legoinstrux" id="i3"><div><h2>Back</h2><img class="item" id="img3" src="imgs/11007/3c.png" alt="instruction image" /></div></div>
-    <div class="legoinstrux" id="i4"><div><h2>Left</h2><img class="item" id="img4" src="imgs/11007/4c.png" alt="instruction image" /></div></div>
-    <div class="legoinstrux" id="i5"><div><h2>Top</h2><img class="item" id="img5" src="imgs/11007/5c.png" alt="instruction image" /></div></div>
-    <div class="legoinstrux" style="display: none;" id="i6"><div><h2>Top</h2><img class="item" id="img5" src="imgs/11007/6s.png" alt="instruction image" /></div></div>
-    <div class="legoinstrux" style="display: none;" id="i6ss"><div><h2>Top</h2><img class="item" id="img5" src="imgs/11007/6ss.png" alt="instruction image" /></div></div>
-<!-- <div class="legoinstrux" style="display: none;" id="i6ss"><div><h2>Top</h2><img class="item" id="img5" src="imgs/11007/6ss.svg" alt="instruction image" /></div></div> -->
+    <div class="legoinstrux" id="i1"><div><h2>Front</h2><img class="item" id="img1" src="imgs/11006/1c.png" alt="instruction image" /></div></div>
+    <div class="legoinstrux" id="i2"><div><h2>Right</h2><img class="item" id="img2" src="imgs/11006/2c.png" alt="instruction image" /></div></div>
+    <div class="legoinstrux" id="i3"><div><h2>Back</h2><img class="item" id="img3" src="imgs/11006/3c.png" alt="instruction image" /></div></div>
+    <div class="legoinstrux" id="i4"><div><h2>Left</h2><img class="item" id="img4" src="imgs/11006/4c.png" alt="instruction image" /></div></div>
+    <div class="legoinstrux" id="i5"><div><h2>Top</h2><img class="item" id="img5" src="imgs/11006/5c.png" alt="instruction image" /></div></div>
+    <div class="legoinstrux" style="display: none;" id="i6"><div><h2>Top</h2><img class="item" id="img5" src="imgs/11006/6s.png" alt="instruction image" /></div></div>
+    <div class="legoinstrux" style="display: none;" id="i6ss"><div><h2>Top</h2><img class="item" id="img5" src="imgs/11006/6ss.png" alt="instruction image" /></div></div>
+<!-- <div class="legoinstrux" style="display: none;" id="i6ss"><div><h2>Top</h2><img class="item" id="img5" src="imgs/11006/6ss.svg" alt="instruction image" /></div></div> -->
 
 
-    <div class="legoinstrux" style="display: none;" id="i1ss"><div><h2>Top</h2><img class="item" id="img5" src="imgs/11007/1ss.png" alt="instruction image" /></div></div>
+    <div class="legoinstrux" style="display: none;" id="i1ss"><div><h2>Top</h2><img class="item" id="img5" src="imgs/11006/1ss.png" alt="instruction image" /></div></div>
+    <div class="legoinstrux" id="plist"><div><h2>Top</h2><img class="item" style="mix-blend-mode: normal;" id="img5" src="imgs/11006/parts.png" alt="instruction image" /></div></div>
+
 
 
 </body>
@@ -338,20 +365,20 @@ var isChecked = document.getElementById("solutionSwitch").checked;
 if(isChecked){
 	console.log("Input is checked");
 	var img=document.getElementById("img1");
-	if (img.src === "imgs/11007/1c.png") {
-		img.src="imgs/11007/1s.png";
+	if (img.src === "imgs/11006/1c.png") {
+		img.src="imgs/11006/1s.png";
 	} else {
-		img.src="imgs/11007/1s.png";
+		img.src="imgs/11006/1s.png";
 	}
 
 } else {
 console.log("Input is NOT checked");
 
 var img=document.getElementById("img1");
-	if (img.src === "imgs/11007/1s.png") {
-		img.src="imgs/11007/1c.png";
+	if (img.src === "imgs/11006/1s.png") {
+		img.src="imgs/11006/1c.png";
 	} else {
-	img.src="imgs/11007/1c.png";
+	img.src="imgs/11006/1c.png";
 	}
 }
 }
@@ -362,18 +389,18 @@ var isChecked = document.getElementById("solutionSwitch").checked;
 
 if(isChecked){
 	var img=document.getElementById("img2");
-	if (img.src === "imgs/11007/2c.png") {
-		img.src="imgs/11007/2s.png";
+	if (img.src === "imgs/11006/2c.png") {
+		img.src="imgs/11006/2s.png";
 	} else {
-		img.src="imgs/11007/2s.png";
+		img.src="imgs/11006/2s.png";
 	}
 
 } else {
 var img=document.getElementById("img2");
-	if (img.src === "imgs/11007/2s.png") {
-		img.src="imgs/11007/2c.png";
+	if (img.src === "imgs/11006/2s.png") {
+		img.src="imgs/11006/2c.png";
 	} else {
-	img.src="imgs/11007/2c.png";
+	img.src="imgs/11006/2c.png";
 	}
 }
 }
@@ -383,18 +410,18 @@ var isChecked = document.getElementById("solutionSwitch").checked;
 
 if(isChecked){
 	var img=document.getElementById("img3");
-	if (img.src === "imgs/11007/3c.png") {
-		img.src="imgs/11007/3s.png";
+	if (img.src === "imgs/11006/3c.png") {
+		img.src="imgs/11006/3s.png";
 	} else {
-		img.src="imgs/11007/3s.png";
+		img.src="imgs/11006/3s.png";
 	}
 
 } else {
 var img=document.getElementById("img3");
-	if (img.src === "imgs/11007/3s.png") {
-		img.src="imgs/11007/3c.png";
+	if (img.src === "imgs/11006/3s.png") {
+		img.src="imgs/11006/3c.png";
 	} else {
-	img.src="imgs/11007/3c.png";
+	img.src="imgs/11006/3c.png";
 	}
 }
 }
@@ -404,18 +431,18 @@ var isChecked = document.getElementById("solutionSwitch").checked;
 
 if(isChecked){
 	var img=document.getElementById("img4");
-	if (img.src === "imgs/11007/4c.png") {
-		img.src="imgs/11007/4s.png";
+	if (img.src === "imgs/11006/4c.png") {
+		img.src="imgs/11006/4s.png";
 	} else {
-		img.src="imgs/11007/4s.png";
+		img.src="imgs/11006/4s.png";
 	}
 
 } else {
 var img=document.getElementById("img4");
-	if (img.src === "imgs/11007/4s.png") {
-		img.src="imgs/11007/4c.png";
+	if (img.src === "imgs/11006/4s.png") {
+		img.src="imgs/11006/4c.png";
 	} else {
-	img.src="imgs/11007/4c.png";
+	img.src="imgs/11006/4c.png";
 	}
 }
 }
@@ -425,18 +452,18 @@ var isChecked = document.getElementById("solutionSwitch").checked;
 
 if(isChecked){
 	var img=document.getElementById("img5");
-	if (img.src === "imgs/11007/5c.png") {
-		img.src="imgs/11007/5s.png";
+	if (img.src === "imgs/11006/5c.png") {
+		img.src="imgs/11006/5s.png";
 	} else {
-		img.src="imgs/11007/5s.png";
+		img.src="imgs/11006/5s.png";
 	}
 
 } else {
 var img=document.getElementById("img5");
-	if (img.src === "imgs/11007/5s.png") {
-		img.src="imgs/11007/5c.png";
+	if (img.src === "imgs/11006/5s.png") {
+		img.src="imgs/11006/5c.png";
 	} else {
-	img.src="imgs/11007/5c.png";
+	img.src="imgs/11006/5c.png";
 	}
 }
 }
